@@ -7,6 +7,7 @@
     --btn-card: #B93857;
     --font-color: black;
     --font-secondary-color: #fff;
+    --hover-color: #075f4f;
 
     --maven-pro-font: "Maven Pro", sans-serif;
     --open-sans-font: "Open Sans", sans-serif;
@@ -38,12 +39,140 @@ main h1,
     font-weight: 600;
 }
 
+button {
+    background-color: var(--main-color);
+    color: var(--font-secondary-color);
+    font-weight: bold;
+    font-family: var(--open-sans-font);
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Utility */
+.flex-container {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
 /* Header */
+header {
+    position: relative;
+}
+
+/* .navbar {
+    order: 1;
+} */
+
+.nav-burger-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    padding: .5rem;
+    transform: scale(0.8);
+}
+
+.nav-links {
+    display: none;
+}
+
 .nav-link {
     text-decoration: none;
 }
 
+.header-grid {
+    display: grid;
+    grid-template-areas:
+        "hero   hero  "
+        "hero   hero  "
+        "brand1 brand2";
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+
+    height: 100vh;
+}
+
+.hero-img {
+    grid-area: hero;
+}
+
+.hero-img img {
+    object-position: center;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.brand-img-logo {
+    grid-area: hero;
+    justify-self: center;
+    align-self: center;
+    transform: scale(1.3);
+}
+
+.brand-img-plant {
+    background-color: var(--accent-color);
+    grid-area: brand1;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.brand-img-shovel {
+    background-color: var(--main-color);
+    grid-area: brand2;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
 /* Main */
+/* Intro section */
+.intro-title {
+    text-align: center;
+    margin-block: 1rem;
+}
+
+.intro {
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.intro p {
+    text-align: center;
+}
+
+.intro p span {
+    display: block;
+}
+
+.brand-img-seeds {
+    width: fit-content;
+    /* height: 100%; */
+    border-radius: 50%;
+    padding: 3.5rem;
+    background-color: var(--main-color);
+}
+
+.line {
+    width: 70vw;
+    background-color: var(--main-color);
+    height: 6px;
+    margin: 2rem auto;
+    border-radius: 8px;
+}
+
 /* Planning section */
 .planning-title, 
 .card-tile,

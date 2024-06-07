@@ -7,38 +7,47 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <header>
-    <figure class="hero-img">
-      <img src="assets/hand_holding_seedlings.png" alt="Hand holding up some seedlings">
-      <img src="assets/Logo.svg" alt="Planthood logo">
-    </figure>
-    <figure class="brand-img-plant">
-      <img src="assets/seedling.svg" alt="Plant line art">
-    </figure>
-    <figure class="brand-img-shovel">
-      <img src="assets/dig.svg" alt="Shovel digging line art">
-    </figure>
-    <nav>
-      <a class="nav-link" href="#">PLANER</a>
-      <a class="nav-link" href="#">HISTORIK</a>
-      <a class="nav-link" href="#">TIPS</a>
-      <a class="nav-link" href="#">LOGGA IN</a>
+  <header class="flex-container flex-column">
+    <nav class="navbar">
+      <figure class="nav-burger-menu">
+        <img src="assets/burger_menu.png" alt="Burger menu icon">
+      </figure>
+      <section class="nav-links">
+        <a class="nav-link" href="#">PLANER</a>
+        <a class="nav-link" href="#">HISTORIK</a>
+        <a class="nav-link" href="#">TIPS</a>
+        <a class="nav-link" href="#">LOGGA IN</a>
+      </section>
     </nav>
+    <section class="header-grid">
+      <figure class="hero-img">
+        <img src="assets/hand_holding_seedlings.png" alt="Hand holding up some seedlings">
+      </figure>
+      <figure class="brand-img-logo">
+        <img src="assets/Logo.svg" alt="Planthood logo">
+      </figure>
+      <figure class="brand-img-plant">
+        <img src="assets/seedling.svg" alt="Plant line art">
+      </figure>
+      <figure class="brand-img-shovel">
+        <img src="assets/dig.svg" alt="Shovel digging line art">
+      </figure>
+    </section>
   </header>
   <main>
-    <h1>PLANNDED PLANTHOOD</h1>
-    <article class="intro">
-      <figure>
-        <img src="assets/Vectorseedpackage.svg" alt="Seedpackage line art">
-      </figure>
+    <h1 class="intro-title">PLANNED PLANTHOOD</h1>
+    <article class="intro flex-container flex-column">
       <h2>Säsong att så</h2>
       <p>
-        Våren är äntligen här i kollektivet! 
-         Lorem ipsum dolor sit amet consectetur. Sit venenatis arcu nunc consectetur neque. Vel amet netus amet eu elit.
+        <span>Våren är äntligen här i kollektivet!</span>
+        Lorem ipsum dolor sit amet consectetur. Sit venenatis arcu nunc consectetur neque. Vel amet netus amet eu elit.
       </p>
       <button class="btn-tips">SÅ-TIPS</button>
+      <figure class="brand-img-seeds">
+        <img src="assets/Vectorseedpackage.svg" alt="Seedpackage line art">
+      </figure>
     </article>
-    <hr>
+    <div class="line"></div>
     <section class="planning">
       <h2 class="planning-title">Våra planerade planteringar</h2>
       <article class="plant-card">
