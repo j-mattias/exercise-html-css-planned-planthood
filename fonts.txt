@@ -1,0 +1,23 @@
+- index - 
+
+Title / Nav / Vi hörs section
+Maven Pro
+
+Text / Cards date / card button / Till toppen av sidan
+Open Sans
+
+Card Section title / Card title / user
+Lato
+
+Planterade plantor button
+Inter
+
+- Page 2 - 
+
+Lägg till ny plantering / Inputs / Lägg till button / Till toppen av sidan
+Open Sans
+
+Dina planerade planteringar
+Lato
+
+*Cards same as first page*
