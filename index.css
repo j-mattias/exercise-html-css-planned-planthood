@@ -1,195 +1,200 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Maven+Pro:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Maven+Pro:wght@400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 :root {
-    --bg-color: #fff;
-    --main-color: #0A846E;
-    --accent-color: #9E6D52;
-    --btn-card: #B93857;
-    --font-color: black;
-    --font-secondary-color: #fff;
-    --hover-color: #075f4f;
+  --bg-color: #fff;
+  --main-color: #0a846e;
+  --accent-color: #9e6d52;
+  --btn-card: #b93857;
+  --font-color: black;
+  --font-secondary-color: #fff;
+  --hover-color: #075f4f;
 
-    --maven-pro-font: "Maven Pro", sans-serif;
-    --open-sans-font: "Open Sans", sans-serif;
-    --lato-font: "Lato", sans-serif;
-    --inter-font: "Inter", sans-serif;
+  --maven-pro-font: "Maven Pro", sans-serif;
+  --open-sans-font: "Open Sans", sans-serif;
+  --lato-font: "Lato", sans-serif;
+  --inter-font: "Inter", sans-serif;
 }
 
 /* CSS Resets */
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+/* Defaults */
 body {
-    font-style: normal;
-    font-family: var(--open-sans-font);
-    color: var(--font-color);
-    background-color: var(--bg-color);
+  font-style: normal;
+  font-family: var(--open-sans-font);
+  color: var(--font-color);
+  background-color: var(--bg-color);
 }
 
 .nav-link,
 main h1,
 .outro-title,
-.phone, 
+.phone,
 .mail {
-    font-family: var(--maven-pro-font);
-    color: var(--main-color);
-    font-weight: 600;
+  font-family: var(--maven-pro-font);
+  color: var(--main-color);
+  font-weight: 600;
 }
 
 button {
-    background-color: var(--main-color);
-    color: var(--font-secondary-color);
-    font-weight: bold;
-    font-family: var(--open-sans-font);
-    padding: .5rem 1rem;
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-}
+  background-color: var(--main-color);
+  color: var(--font-secondary-color);
+  font-weight: bold;
+  font-family: var(--open-sans-font);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 
-button:hover {
+  &:hover {
     background-color: var(--hover-color);
+  }
 }
 
 /* Utility */
 .flex-container {
-    display: flex;
+  display: flex;
 }
 
 .flex-column {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 /* Header */
 header {
-    position: relative;
+  position: relative;
 }
 
-/* .navbar {
-    order: 1;
-} */
+/* Header > Nav */
+.navbar {
+  order: 1;
 
-.nav-burger-menu {
+  .nav-burger-menu {
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    padding: .5rem;
+    padding: 0.5rem;
     transform: scale(0.8);
-}
+  }
 
-.nav-links {
+  .nav-links {
     display: none;
+
+    .nav-link {
+      text-decoration: none;
+    }
+  }
 }
 
-.nav-link {
-    text-decoration: none;
-}
-
+/* Header > grid with images */
 .header-grid {
-    display: grid;
-    grid-template-areas:
-        "hero   hero  "
-        "hero   hero  "
-        "brand1 brand2";
-    grid-auto-columns: 1fr;
-    grid-auto-rows: 1fr;
+  display: grid;
+  grid-template-areas:
+    "hero   hero  "
+    "hero   hero  "
+    "brand1 brand2";
+  grid-auto-columns: 1fr;
+  grid-auto-rows: 1fr;
 
-    height: 100vh;
-}
-
-.hero-img {
+  .brand-img-logo {
     grid-area: hero;
-}
+    background-image: url("assets/hand_holding_seedlings.png");
+    background-size: cover;
+    background-position: center;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    img {
+      width: 50%;
+    }
+  }
 
-.hero-img img {
-    object-position: center;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-}
-
-.brand-img-logo {
-    grid-area: hero;
-    justify-self: center;
-    align-self: center;
-    transform: scale(1.3);
-}
-
-.brand-img-plant {
+  .brand-img-plant img,
+  .brand-img-shovel img {
+    width: clamp(50%, 90%, 100%);
+    padding: 1rem;
+  }
+  
+  .brand-img-plant {
     background-color: var(--accent-color);
     grid-area: brand1;
     display: grid;
     align-items: center;
     justify-items: center;
-}
-
-.brand-img-shovel {
+  }
+  
+  .brand-img-shovel {
     background-color: var(--main-color);
     grid-area: brand2;
     display: grid;
     align-items: center;
     justify-items: center;
+  }
 }
 
 /* Main */
+h1.intro-title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin: 1rem;
+}
+
 /* Intro section */
-.intro-title {
-    text-align: center;
-    margin-block: 1rem;
-}
-
 .intro {
-    align-items: center;
-    padding: 1rem;
-    gap: 1rem;
-}
-
-.intro p {
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  
+  .intro p {
     text-align: center;
-}
-
-.intro p span {
+  }
+  
+  .intro p span {
     display: block;
+  }
+  
+  .brand-img-seeds {
+    width: fit-content;
+    border-radius: 50%;
+    padding: 3rem;
+    background-color: var(--main-color);
+  }
 }
 
-.brand-img-seeds {
-    width: fit-content;
-    /* height: 100%; */
-    border-radius: 50%;
-    padding: 3.5rem;
-    background-color: var(--main-color);
-}
 
 .line {
-    width: 70vw;
-    background-color: var(--main-color);
-    height: 6px;
-    margin: 2rem auto;
-    border-radius: 8px;
+  width: 70vw;
+  background-color: var(--main-color);
+  height: 6px;
+  margin: 2rem auto;
+  border-radius: 8px;
 }
 
 /* Planning section */
-.planning-title, 
+.planning-title,
 .card-tile,
 .user {
-    font-family: var(--lato-font);
+  font-family: var(--lato-font);
 }
 
 /* Previous section */
 .btn-planted {
-    font-family: var(--inter-font);
+  font-family: var(--inter-font);
 }
 
 /* Footer */
 .outro * {
-    color: var(--font-secondary-color)
+  color: var(--font-secondary-color);
 }
 
 address {
-    font-style: normal;
+  font-style: normal;
 }
