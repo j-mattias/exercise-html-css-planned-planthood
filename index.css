@@ -113,7 +113,7 @@ header {
 }
 
 /* Header > grid with images */
-.header-hero {
+.hero {
   grid-template-areas:
     "hero   hero   hero   hero   hero   hero  "
     "hero   hero   hero   hero   hero   hero  "
@@ -121,9 +121,7 @@ header {
   grid-auto-columns: 1fr;
   grid-auto-rows: 1fr;
 
-  /* height: 90vh; */
-
-  .brand-img-logo {
+  .hero__img--logo {
     grid-area: hero;
     background-image: url("assets/hand_holding_seedlings.png");
     background-size: cover;
@@ -138,32 +136,31 @@ header {
     }
   }
 
-  .brand-img-plant img,
-  .brand-img-shovel img {
+  :is(.hero__img--plant, .hero__img--shovel) img {
     width: clamp(50%, 90%, 100%);
     padding: 1rem;
   }
 
-  .brand-img-plant {
-    background-color: var(--accent-color);
-    grid-area: brand1;
+  :is(.hero__img--plant, .hero__img--shovel) {
     display: grid;
     align-items: center;
     justify-items: center;
   }
 
-  .brand-img-shovel {
+  .hero__img--plant {
+    background-color: var(--accent-color);
+    grid-area: brand1;
+  }
+
+  .hero__img--shovel {
     background-color: var(--main-color);
     grid-area: brand2;
-    display: grid;
-    align-items: center;
-    justify-items: center;
   }
 }
 
 /* Header > Nav */
-.navbar {
-  .nav-burger-menu {
+.nav {
+  .nav__burger-menu {
     position: absolute;
     top: 0;
     right: 0;
@@ -175,11 +172,12 @@ header {
     }
   }
 
-  .nav-links {
+  .nav__links {
     display: none;
 
-    .nav-link {
+    .nav__link {
       text-decoration: none;
+      font-weight: 600;
     }
   }
 }
@@ -190,37 +188,36 @@ main {
   gap: 1rem;
 }
 
-h1.intro-title {
+h1.page-title {
   font-size: 1.6rem;
   text-align: center;
   margin-bottom: 1.4rem;
 }
 
-.intro,
-.previous {
+.info {
   align-items: center;
   gap: 1rem;
 
-  .intro-content,
-  .previous-content {
+  .info__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
 
-    h2 {
+    .info__title {
       font-size: 1rem;
+    }
+
+    .info__text {
+      text-align: center;
+      font-size: 0.875rem;
+    }
+  
+    .info__text span {
+      display: block;
     }
   }
 
-  p {
-    text-align: center;
-    font-size: 0.875rem;
-  }
-
-  p span {
-    display: block;
-  }
 }
 
 .line {
@@ -232,9 +229,9 @@ h1.intro-title {
 }
 
 /* Planning section */
-.planning-title,
-.card-title,
-.user {
+.planning__title,
+.card-info__title,
+.card-info__user {
   font-family: var(--lato-font);
 }
 
@@ -242,14 +239,14 @@ h1.intro-title {
   grid-auto-columns: 1fr;
   gap: 1rem;
 
-  .planning-title {
+  .planning__title {
     grid-column: 1 / -1;
     margin-block: 2rem 1rem;
     font-size: 1rem;
     text-align: center;
   }
 
-  .btn-show-more {
+  .planning__button {
     grid-column: 1 / -1;
     justify-self: center;
     margin-top: 2rem;
@@ -263,54 +260,53 @@ h1.intro-title {
   display: grid;
   grid-template-rows: 1fr;
 
-  figure {
+  .plant-card__fig {
     position: relative;
     display: grid;
     justify-items: center;
     align-items: center;
   }
 
-  > figure img {
+  > .plant-card__fig img {
     width: 100%;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
   }
 
-  > figure .img-overlay {
+  > .plant-card__fig .img-overlay {
     width: 50%;
   }
 
-  .plant-info {
+  .plant-card__info {
     display: grid;
     grid-template-areas:
       "title date"
       "user  btn ";
-    /* grid-auto-rows: 1fr; */
     grid-template-columns: 1fr;
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem 0;
     padding: 0.4rem 0.4rem 0;
 
-    .card-title,
-    .user {
+    .card-info__title,
+    .card-info__user {
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
     }
 
-    .card-title {
+    .card-info__title {
       grid-area: title;
       font-size: 1rem;
     }
 
-    .date {
+    .card-info__date {
       grid-area: date;
       font-weight: 700;
       font-size: 0.8rem;
     }
 
-    .user {
+    .card-info__user {
       font-size: 0.8rem;
       grid-area: user;
       color: var(--font-faded-color);
@@ -348,17 +344,10 @@ h1.intro-title {
   }
 }
 
-/* Previous section */
-.previous {
-  margin-bottom: 4rem;
-  .btn-planted {
-    font-family: var(--inter-font);
-  }
-}
-
 /* Footer */
 footer {
   width: 100%;
+  padding-top: 3rem;
 
   .to-top {
     display: flex;
@@ -413,43 +402,43 @@ footer {
     color: var(--font-secondary-color);
   }
 
-  .outro-title {
+  .outro__title {
     grid-area: bye;
     font-size: 2rem;
     font-weight: 500;
   }
 
-  address {
+  address.contact {
+    grid-area: address;
     font-style: normal;
     align-self: end;
     display: flex;
     justify-content: space-between;
     width: 100%;
-    grid-area: address;
     padding: 0 1rem 1.5rem 1rem;
     font-size: 0.8rem;
   }
 
-  address > :is(.phone, .mail) {
+  address.contact > :is(.contact__phone, .contact__mail) {
     display: flex;
     align-items: center;
     font-weight: 400;
+
+    img {
+      width: 20%;
+    }
   }
 
-  address > .mail {
+  address.contact > .contact__mail {
     justify-content: flex-end;
   }
 
-  address > .phone figcaption {
+  address > .contact__phone figcaption {
     padding-inline: 0.5rem 0;
   }
 
-  address > .mail figcaption {
+  address > .contact__mail figcaption {
     padding-inline: 0 0.5rem;
-  }
-
-  address > :is(.phone, .mail) img {
-    width: 20%;
   }
 }
 
@@ -473,40 +462,39 @@ footer {
   }
 
   /* Header > grid with images */
-  .header-hero {
+  .hero {
     grid-template-areas:
       "hero hero hero brand1 brand1 brand1"
       "hero hero hero brand2 brand2 brand2";
 
-    .brand-img-plant img,
-    .brand-img-shovel img {
+    :is(.hero__img--plant, .hero__img--shovel) img {
       width: 50%;
     }
   }
 
   /* Header > Nav */
-  .navbar {
-    .nav-burger-menu {
+  .nav {
+    .nav__burger-menu {
       display: none;
     }
 
-    .nav-links {
+    .nav__links {
       display: flex;
       justify-content: space-around;
       background-color: var(--bg-color);
 
-      a {
+      .nav__link {
         padding: 1rem 1.5rem;
         flex: 1;
         text-align: center;
         color: var(--font-nav-color);
         font-size: 1.2rem;
         transition: all 0.3s;
-      }
 
-      a:hover {
-        background-color: var(--hover-color);
-        color: var(--font-secondary-color);
+        &:hover {
+          background-color: var(--hover-color);
+          color: var(--font-secondary-color);
+        }
       }
     }
   }
@@ -516,38 +504,33 @@ footer {
     gap: 2rem;
   }
 
-  h1.intro-title {
+  h1.page-title {
     font-size: 2.6rem;
     margin-bottom: 0;
   }
 
-  .intro,
-  .previous {
+  .info {
     flex-direction: row-reverse;
 
-    .intro-content,
-    .previous-content {
+    .info__content {
       align-items: start;
       padding-inline: 2rem 0;
 
-      h2 {
+      .info__title {
         font-size: 2rem;
       }
 
-      p {
+      .info__text {
         font-size: 1rem;
+        text-align: left;
       }
     }
 
-    .previous-content {
+    .info__content--previous {
       padding-inline: 0 2rem;
     }
 
-    p {
-      text-align: left;
-    }
-
-    .btn-tips {
+    .info__button {
       align-self: flex-end;
     }
   }
@@ -558,7 +541,7 @@ footer {
 
   /* Planning section */
   .planning {
-    .planning-title {
+    .planning__title {
       font-size: 1.6rem;
     }
   }
@@ -566,20 +549,20 @@ footer {
   .plant-card {
     grid-column: span 2;
 
-    > figure .img-overlay {
+    > .plant-card__fig .img-overlay {
       width: 80%;
     }
 
-    .plant-info {
+    .plant-card__info {
       padding: 0.8rem;
       gap: 1.5rem 0;
 
-      .card-title {
+      .card-info__title {
         font-size: 1.2rem;
       }
 
-      .date,
-      .user {
+      .card-info__date,
+      .card-info__user {
         font-size: 1rem;
       }
     }
@@ -614,15 +597,18 @@ footer {
   }
 
   .outro {
-    .outro-title {
+    .outro__title {
       font-size: 4rem;
     }
 
-    address {
+    address.contact {
       font-size: 1rem;
     }
-    address > :is(.phone, .mail) img {
-      width: 40%;
+
+    address.contact > :is(.contact__phone, .contact__mail) {
+      img {
+        width: 40%;
+      }
     }
   }
 }
