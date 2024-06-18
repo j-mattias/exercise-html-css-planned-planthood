@@ -566,6 +566,10 @@ footer {
   .plant-card {
     grid-column: span 2;
 
+    > figure .img-overlay {
+      width: 80%;
+    }
+
     .plant-info {
       padding: 0.8rem;
       gap: 1.5rem 0;
