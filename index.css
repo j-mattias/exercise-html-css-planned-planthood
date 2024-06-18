@@ -37,15 +37,12 @@ body {
   font-family: var(--open-sans-font);
   color: var(--font-color);
   background-color: var(--body-color);
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  /* padding-bottom: 10rem; */
 }
 
 .wrapper {
   box-shadow: 0 0 6px var(--shadow-color);
   background-color: var(--bg-color);
+  margin: 0 auto;
 }
 
 .nav-link,
@@ -63,7 +60,7 @@ button {
   color: var(--font-secondary-color);
   font-weight: bold;
   font-family: var(--open-sans-font);
-  padding: 0.7rem 1.2rem;
+  padding: 0.4rem 1.2rem;
   border-radius: 8px;
   border: none;
   box-shadow: 0 6px 8px var(--shadow-color);
@@ -105,7 +102,7 @@ button {
 }
 
 .content-padding {
-  padding: 0.5rem;
+  padding: 2rem 0.5rem;
 }
 
 /* Header */
@@ -171,8 +168,11 @@ header {
     top: 0;
     right: 0;
     cursor: pointer;
-    transform: scale(0.8);
-    transform-origin: top right;
+    padding: 0.5rem;
+
+    > img {
+      width: 3rem;
+    }
   }
 
   .nav-links {
@@ -187,12 +187,13 @@ header {
 /* Main */
 main {
   width: 100%;
+  gap: 1rem;
 }
 
 h1.intro-title {
   font-size: 1.6rem;
   text-align: center;
-  margin: 1rem 0 3rem 0;
+  margin-bottom: 1.4rem;
 }
 
 .intro,
@@ -206,10 +207,15 @@ h1.intro-title {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+
+    h2 {
+      font-size: 1rem;
+    }
   }
 
   p {
     text-align: center;
+    font-size: 0.875rem;
   }
 
   p span {
@@ -218,10 +224,10 @@ h1.intro-title {
 }
 
 .line {
-  width: 66%;
+  width: 50%;
   background-color: var(--main-color);
   height: 6px;
-  margin: 2rem auto;
+  margin: 0 auto;
   border-radius: 8px;
 }
 
@@ -239,13 +245,14 @@ h1.intro-title {
   .planning-title {
     grid-column: 1 / -1;
     margin-block: 2rem 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: center;
   }
 
   .btn-show-more {
     grid-column: 1 / -1;
     justify-self: center;
+    margin-top: 2rem;
   }
 }
 
@@ -322,11 +329,12 @@ h1.intro-title {
     padding-inline: 1rem 0;
 
     &:hover svg path {
+      transition: all 0.3s;
       fill: var(--btn-card-hover);
     }
 
     svg {
-      width: 1.3rem;
+      width: 1.2rem;
       height: 100%;
     }
     svg path {
@@ -355,7 +363,7 @@ footer {
   .to-top {
     display: flex;
     justify-content: center;
-    padding: 2rem 2rem;
+    padding: 1.4rem 2rem;
     text-decoration: none;
     color: var(--font-color);
     transition: all 0.3s;
@@ -386,61 +394,75 @@ footer {
     align-items: center;
     padding: 6rem;
   }
+}
 
-  .outro {
+.outro {
+  grid-area: bye;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(2px);
+  display: grid;
+  grid-template-areas:
+    ".       .       .      "
+    ".       bye     .      "
+    "address address address";
+  grid-auto-rows: 1fr;
+  align-items: center;
+  justify-items: center;
+
+  * {
+    color: var(--font-secondary-color);
+  }
+
+  .outro-title {
     grid-area: bye;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(2px);
-    display: grid;
-    grid-template-areas:
-      ".       .       .      "
-      ".       bye     .      "
-      "address address address";
-    grid-auto-rows: 1fr;
+    font-size: 2rem;
+    font-weight: 500;
+  }
+
+  address {
+    font-style: normal;
+    align-self: end;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    grid-area: address;
+    padding: 0 1rem 1.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  address > :is(.phone, .mail) {
+    display: flex;
     align-items: center;
-    justify-items: center;
+    font-weight: 400;
+  }
 
-    * {
-      color: var(--font-secondary-color);
-    }
+  address > .mail {
+    justify-content: flex-end;
+  }
 
-    .outro-title {
-      grid-area: bye;
-      font-size: 2.2rem;
-      font-weight: 500;
-    }
+  address > .phone figcaption {
+    padding-inline: 0.5rem 0;
+  }
 
-    address {
-      font-style: normal;
-      align-self: end;
-      display: flex;
-      justify-content: space-between;
-      width: 100%;
-      grid-area: address;
-      padding: 0 1rem 1.5rem 1rem;
-    }
+  address > .mail figcaption {
+    padding-inline: 0 0.5rem;
+  }
 
-    address > :is(.phone, .mail) {
-      display: flex;
-      align-items: center;
-      font-weight: 400;
-    }
-
-    address > .phone figcaption {
-      padding-inline: 0.5rem 0;
-    }
-
-    address > .mail figcaption {
-      padding-inline: 0 0.5rem;
-    }
+  address > :is(.phone, .mail) img {
+    width: 20%;
   }
 }
 
-@media screen and (width > 1024px) {
+@media screen and (width > 1000px) {
   body {
     padding-bottom: 15%;
   }
 
+  button {
+    padding: 1rem 2.4rem;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+  }
   .content-padding {
     padding: 2rem;
   }
@@ -472,12 +494,13 @@ footer {
       display: flex;
       justify-content: space-around;
       background-color: var(--bg-color);
-      
+
       a {
-        padding: 1.5rem;
+        padding: 1rem 1.5rem;
         flex: 1;
         text-align: center;
         color: var(--font-nav-color);
+        font-size: 1.2rem;
         transition: all 0.3s;
       }
 
@@ -488,6 +511,16 @@ footer {
     }
   }
 
+  /* Main */
+  main {
+    gap: 2rem;
+  }
+
+  h1.intro-title {
+    font-size: 2.6rem;
+    margin-bottom: 0;
+  }
+
   .intro,
   .previous {
     flex-direction: row-reverse;
@@ -496,6 +529,14 @@ footer {
     .previous-content {
       align-items: start;
       padding-inline: 2rem 0;
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
     }
 
     .previous-content {
@@ -515,13 +556,69 @@ footer {
     width: 33%;
   }
 
-  .plant-card {
-    grid-column: span 2;
+  /* Planning section */
+  .planning {
+    .planning-title {
+      font-size: 1.6rem;
+    }
   }
 
+  .plant-card {
+    grid-column: span 2;
+
+    .plant-info {
+      padding: 0.8rem;
+      gap: 1.5rem 0;
+
+      .card-title {
+        font-size: 1.2rem;
+      }
+
+      .date,
+      .user {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .btn-delete {
+    &.btn-trash-can {
+      display: none;
+    }
+
+    &.btn-normal {
+      display: inline-block;
+      font-size: 0.8rem;
+      padding: 0.4rem;
+      margin: 0;
+      box-shadow: none;
+
+      &:hover {
+        background-color: var(--btn-card-hover);
+      }
+    }
+  }
+  /* Footer */
   .footer-bg {
     grid-template-areas:
       "bye bye bye logo logo logo"
       "bye bye bye logo logo logo";
+
+    > figure {
+      padding: 10rem 6rem;
+    }
+  }
+
+  .outro {
+    .outro-title {
+      font-size: 4rem;
+    }
+
+    address {
+      font-size: 1rem;
+    }
+    address > :is(.phone, .mail) img {
+      width: 40%;
+    }
   }
 }
