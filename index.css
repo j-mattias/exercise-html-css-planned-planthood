@@ -62,7 +62,8 @@ button {
   color: var(--font-secondary-color);
   font-weight: bold;
   font-family: var(--open-sans-font);
-  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  padding: 0.5rem 1.4rem;
   border-radius: 8px;
   border: none;
   box-shadow: 0 6px 8px var(--shadow-color);
@@ -106,6 +107,8 @@ button {
 .content-padding {
   padding: 2rem 0.5rem;
 }
+
+/* ########## index.html ########## */
 
 /* Header */
 header {
@@ -191,7 +194,7 @@ main {
 }
 
 h1.page-title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   text-align: center;
   margin-bottom: 1.4rem;
 }
@@ -230,11 +233,11 @@ h1.page-title {
 }
 
 /* Planning section */
-.planning__title,
+/* .planning__title,
 .card-info__title,
 .card-info__user {
   font-family: var(--lato-font);
-}
+} */
 
 .planning {
   grid-auto-columns: 1fr;
@@ -243,6 +246,7 @@ h1.page-title {
   .planning__title {
     grid-column: 1 / -1;
     margin-block: 2rem 1rem;
+    font-family: var(--open-sans-font);
     font-size: 1rem;
     text-align: center;
   }
@@ -296,21 +300,27 @@ h1.page-title {
       overflow: hidden;
     }
 
+    :is(.card-info__title, .card-info__user) {
+      font-family: var(--lato-font);
+    }
+
     .card-info__title {
       grid-area: title;
-      font-size: 1rem;
+      font-size: 0.875rem;
     }
 
     .card-info__date {
       grid-area: date;
       font-weight: 700;
-      font-size: 0.8rem;
     }
 
     .card-info__user {
-      font-size: 0.8rem;
       grid-area: user;
       color: var(--font-faded-color);
+    }
+
+    :is(.card-info__date, .card-info__user) {
+      font-size: 0.625rem;
     }
   }
 }
@@ -331,7 +341,7 @@ h1.page-title {
     }
 
     svg {
-      width: 1.2rem;
+      width: 1rem;
       height: 100%;
     }
     svg path {
@@ -357,6 +367,7 @@ footer {
     text-decoration: none;
     color: var(--font-color);
     transition: all 0.3s;
+    font-size: 0.75rem;
 
     &:hover {
       background-color: var(--main-color);
@@ -400,6 +411,7 @@ footer {
 
   * {
     color: var(--font-secondary-color);
+    font-family: var(--maven-pro-font);
   }
 
   .outro__title {
@@ -416,7 +428,7 @@ footer {
     justify-content: space-between;
     width: 100%;
     padding: 0 1rem 1.5rem 1rem;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 
   address.contact > :is(.contact__phone, .contact__mail) {
@@ -449,9 +461,10 @@ footer {
 
   button {
     padding: 1rem 2.4rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-top: 1rem;
   }
+
   .content-padding {
     padding: 2rem;
   }
@@ -488,7 +501,8 @@ footer {
         flex: 1;
         text-align: center;
         color: var(--font-nav-color);
-        font-size: 1.2rem;
+        font-family: var(--maven-pro-font);
+        font-size: 1.25rem;
         transition: all 0.3s;
 
         &:hover {
@@ -505,7 +519,7 @@ footer {
   }
 
   h1.page-title {
-    font-size: 2.6rem;
+    font-size: 3rem;
     margin-bottom: 0;
   }
 
@@ -542,7 +556,12 @@ footer {
   /* Planning section */
   .planning {
     .planning__title {
-      font-size: 1.6rem;
+      font-family: var(--lato-font);
+      font-size: 2rem;
+    }
+
+    .planning__button {
+      margin-bottom: 2rem;
     }
   }
 
@@ -558,7 +577,7 @@ footer {
       gap: 1.5rem 0;
 
       .card-info__title {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
       }
 
       .card-info__date,
@@ -575,7 +594,7 @@ footer {
 
     &.btn-normal {
       display: inline-block;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       padding: 0.4rem;
       margin: 0;
       box-shadow: none;
@@ -585,7 +604,14 @@ footer {
       }
     }
   }
+
   /* Footer */
+  footer {
+    .to-top {
+      font-size: 1.5rem;
+    }
+  }
+
   .footer-bg {
     grid-template-areas:
       "bye bye bye logo logo logo"
@@ -602,7 +628,7 @@ footer {
     }
 
     address.contact {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
 
     address.contact > :is(.contact__phone, .contact__mail) {
@@ -613,7 +639,7 @@ footer {
   }
 }
 
-/* personal.html */
+/* ########## personal.html ########## */
 
 /* Header */
 .hero--personal {
@@ -629,8 +655,11 @@ footer {
   }
 
   .page-title {
-    grid-area: title;
+    font-size: 2rem;
+    font-weight: 500;
+    font-family: var(--maven-pro-font);
     color: var(--font-secondary-color);
+    margin-top: 1.4rem;
   }
 }
 
@@ -647,7 +676,7 @@ footer {
 
 .plant-add__form {
   .plant-add__label {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     display: block;
   }
 
@@ -706,6 +735,7 @@ footer {
 }
 
 @media screen and (width > 1000px) {
+
   /* Header */
   .hero--personal {
     padding: 2rem;
@@ -715,11 +745,17 @@ footer {
         width: 25%;
       }
     }
+
+    .page-title {
+      font-size: 2.5rem;
+    }
   }
 
   /* Main */
   /* Plant add form */
   .plant-add {
+    margin-bottom: 2rem;
+    
     .plant-add__title {
       font-size: 2rem;
       text-align: left;
@@ -743,7 +779,8 @@ footer {
   /* Planted */
   .planted {
     .planted__title {
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-family: var(--lato-font);
     }
   }
 
