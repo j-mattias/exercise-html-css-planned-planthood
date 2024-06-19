@@ -9,7 +9,6 @@
   </head>
   <body>
     <div class="wrapper max-width">
-
       <header class="flex-container flex-column">
         <section class="hero grid-container">
           <figure class="hero__img hero__img--logo">
@@ -23,10 +22,18 @@
           </figure>
         </section>
         <nav class="nav">
-          <figure class="nav__burger-menu">
-            <img src="assets/burger_menu.png" alt="Burger menu icon" />
-          </figure>
+          <input type="checkbox" id="sidebar-toggle" />
+          <label class="open-sidebar" for="sidebar-toggle">
+            <figure class="nav__burger-menu">
+              <img src="assets/burger_menu.png" alt="Burger menu icon" />
+            </figure>
+          </label>
+
+          <label class="sidebar-overlay" for="sidebar-toggle"></label>
           <div class="nav__links">
+            <label class="close-sidebar" for="sidebar-toggle">
+              <img src="assets/close_x.svg" alt="X close icon" />
+            </label>
             <a class="nav__link" href="#">PLANER</a>
             <a class="nav__link" href="#">HISTORIK</a>
             <a class="nav__link" href="#">TIPS</a>
@@ -241,7 +248,6 @@
             <button class="btn-planted">Planterade plantor</button>
           </section>
         </article>
-
       </main>
 
       <footer>
@@ -265,7 +271,6 @@
         </div>
         <a class="to-top" href="#">Till toppen av sidan</a>
       </footer>
-
     </div>
   </body>
 </html>

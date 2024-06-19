@@ -165,6 +165,23 @@ header {
 
 /* Header > Nav */
 .nav {
+  
+  #sidebar-toggle {
+    display: none;
+  }
+
+  #sidebar-toggle:checked ~ .nav__links {
+    top: 0;
+  }
+
+  #sidebar-toggle:checked ~ .sidebar-overlay {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 8;
+  }
+
   .nav__burger-menu {
     position: absolute;
     top: 0;
@@ -178,11 +195,45 @@ header {
   }
 
   .nav__links {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: -100%;
+    z-index: 9;
+    width: 100%;
+
+    box-shadow: 0 4px 4px 0 var(--shadow-color);
+
+    justify-content: space-around;
+    background-color: var(--bg-color);
+
+    transition: all 0.8s;
 
     .nav__link {
+      padding: 1rem 1.5rem;
+      flex: 1;
+      text-align: center;
+      color: var(--font-nav-color);
       text-decoration: none;
       font-weight: 600;
+      font-family: var(--maven-pro-font);
+      font-size: 1.25rem;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: var(--hover-color);
+        color: var(--font-secondary-color);
+      }
+    }
+
+    .close-sidebar {
+      cursor: pointer;
+      align-self: flex-end;
+      padding: 1rem 1rem 0 1rem;
+    }
+
+    .close-sidebar > img {
+      width: 3rem;
     }
   }
 }
@@ -233,12 +284,6 @@ h1.page-title {
 }
 
 /* Planning section */
-/* .planning__title,
-.card-info__title,
-.card-info__user {
-  font-family: var(--lato-font);
-} */
-
 .planning {
   grid-auto-columns: 1fr;
   gap: 1rem;
@@ -293,15 +338,11 @@ h1.page-title {
     gap: 0.5rem 0;
     padding: 0.4rem 0.4rem 0;
 
-    .card-info__title,
-    .card-info__user {
+    :is(.card-info__title, .card-info__user) {
+      font-family: var(--lato-font);
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
-    }
-
-    :is(.card-info__title, .card-info__user) {
-      font-family: var(--lato-font);
     }
 
     .card-info__title {
@@ -492,23 +533,14 @@ footer {
     }
 
     .nav__links {
-      display: flex;
-      justify-content: space-around;
-      background-color: var(--bg-color);
+      top: 0;
+      position: relative;
+      flex-direction: row;
+      transition: none;
+      box-shadow: none;
 
-      .nav__link {
-        padding: 1rem 1.5rem;
-        flex: 1;
-        text-align: center;
-        color: var(--font-nav-color);
-        font-family: var(--maven-pro-font);
-        font-size: 1.25rem;
-        transition: all 0.3s;
-
-        &:hover {
-          background-color: var(--hover-color);
-          color: var(--font-secondary-color);
-        }
+      .close-sidebar {
+        display: none;
       }
     }
   }
@@ -735,7 +767,6 @@ footer {
 }
 
 @media screen and (width > 1000px) {
-
   /* Header */
   .hero--personal {
     padding: 2rem;
@@ -755,7 +786,7 @@ footer {
   /* Plant add form */
   .plant-add {
     margin-bottom: 2rem;
-    
+
     .plant-add__title {
       font-size: 2rem;
       text-align: left;

@@ -11,15 +11,23 @@
     <div class="wrapper max-width">
       <header class="flex-container flex-column">
         <nav class="nav">
-          <figure class="nav__burger-menu">
-            <img src="assets/burger_menu.png" alt="Burger menu icon" />
-          </figure>
-          <section class="nav__links">
+          <input type="checkbox" id="sidebar-toggle" />
+          <label class="open-sidebar" for="sidebar-toggle">
+            <figure class="nav__burger-menu">
+              <img src="assets/burger_menu.png" alt="Burger menu icon" />
+            </figure>
+          </label>
+
+          <label class="sidebar-overlay" for="sidebar-toggle"></label>
+          <div class="nav__links">
+            <label class="close-sidebar" for="sidebar-toggle">
+              <img src="assets/close_x.svg" alt="X close icon" />
+            </label>
             <a class="nav__link" href="#">PLANER</a>
             <a class="nav__link" href="#">HISTORIK</a>
             <a class="nav__link" href="#">TIPS</a>
             <a class="nav__link" href="#">LOGGA UT</a>
-          </section>
+          </div>
         </nav>
         <section class="hero hero--personal grid-container">
           <figure class="hero__img hero__img--logo hero__img--personal">
