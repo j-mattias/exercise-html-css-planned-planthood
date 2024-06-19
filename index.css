@@ -13,6 +13,7 @@
   --hover-color: #075f4f;
   --body-color: #fcf6fc;
   --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-alt-color: rgba(182, 178, 130, 0.2);
 
   --maven-pro-font: "Maven Pro", sans-serif;
   --open-sans-font: "Open Sans", sans-serif;
@@ -30,6 +31,7 @@
 /* Defaults */
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--main-color) #e7e7e7;
 }
 
 body {
@@ -212,12 +214,11 @@ h1.page-title {
       text-align: center;
       font-size: 0.875rem;
     }
-  
+
     .info__text span {
       display: block;
     }
   }
-
 }
 
 .line {
@@ -369,7 +370,6 @@ footer {
     "logo logo logo logo logo logo"
     "bye  bye  bye  bye  bye  bye ";
   grid-auto-rows: 1fr;
-  height: auto;
 
   background-image: url("https://images.unsplash.com/photo-1586281010691-f9da4be5b1f7?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-size: cover;
@@ -609,6 +609,154 @@ footer {
       img {
         width: 40%;
       }
+    }
+  }
+}
+
+/* personal.html */
+
+/* Header */
+.hero--personal {
+  display: flex;
+  flex-direction: column;
+  background-image: url("assets/hand_reaching_for_plants.png");
+  background-size: cover;
+  background-position: center;
+  padding: 4rem 2rem 0 2rem;
+
+  .hero__img--personal {
+    background-image: none;
+  }
+
+  .page-title {
+    grid-area: title;
+    color: var(--font-secondary-color);
+  }
+}
+
+/* Main */
+/* Plant add form */
+.plant-add {
+  .plant-add__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.plant-add__form {
+  .plant-add__label {
+    font-size: 0.8rem;
+    display: block;
+  }
+
+  .plant-add__input {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 2px 2px var(--shadow-alt-color);
+    margin-bottom: 1rem;
+  }
+
+  .plant-add__button {
+    align-self: center;
+  }
+}
+
+/* Planning styles are shared from index.html */
+
+/* Planted */
+.planted {
+  gap: 1rem;
+
+  .planted__title {
+    text-align: center;
+    font-size: 1rem;
+    grid-column: 1 / -1;
+    margin-block: 2rem 1rem;
+  }
+}
+
+/* Footer */
+.footer--personal {
+  padding-top: 1rem;
+
+  .footer-bg--color {
+    background-color: var(--accent-color);
+    padding: 1rem;
+  }
+}
+
+.grid-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 6rem);
+  gap: 1rem;
+
+  img {
+    grid-column: span 2;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 100%;
+  }
+}
+
+@media screen and (width > 1000px) {
+  /* Header */
+  .hero--personal {
+    padding: 2rem;
+
+    .hero__img--personal {
+      img {
+        width: 25%;
+      }
+    }
+  }
+
+  /* Main */
+  /* Plant add form */
+  .plant-add {
+    .plant-add__title {
+      font-size: 2rem;
+      text-align: left;
+    }
+  }
+
+  .plant-add__form {
+    flex-flow: row wrap;
+    gap: 0 2rem;
+    justify-content: center;
+
+    .input-wrapper {
+      flex: 1 0 48%;
+    }
+
+    .plant-add__label {
+      font-size: 1.25rem;
+    }
+  }
+
+  /* Planted */
+  .planted {
+    .planted__title {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Footer */
+  .footer--personal {
+    padding-top: 3rem;
+  }
+
+  .grid-gallery {
+    grid-template-rows: 1fr;
+
+    img {
+      grid-column: span 1;
     }
   }
 }
