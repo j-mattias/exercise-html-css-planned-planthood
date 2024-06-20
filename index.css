@@ -347,8 +347,8 @@ h1.page-title {
   grid-column: span 3;
   box-shadow: 5px 5px 4px var(--shadow-color);
 
-  display: grid;
-  grid-template-rows: 1fr;
+  display: flex;
+  flex-direction: column;
 
   .plant-card__fig {
     position: relative;
@@ -368,11 +368,9 @@ h1.page-title {
   }
 
   .plant-card__info {
-    display: grid;
-    grid-template-areas:
-      "title date"
-      "user  btn ";
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
+
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem 0;
@@ -385,18 +383,20 @@ h1.page-title {
       overflow: hidden;
     }
 
+    .card-info__title,
+    .card-info__user {
+      flex: 1 0 48%;
+    }
+
     .card-info__title {
-      grid-area: title;
       font-size: 0.875rem;
     }
 
     .card-info__date {
-      grid-area: date;
       font-weight: 700;
     }
 
     .card-info__user {
-      grid-area: user;
       color: var(--font-faded-color);
     }
 
@@ -407,7 +407,6 @@ h1.page-title {
 }
 
 .btn-delete {
-  grid-area: btn;
 
   &.btn-trash-can {
     display: flex;
